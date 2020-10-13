@@ -15,7 +15,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
     }
 
     rateClicked = stars => evt => {
-        fetch(`http://localhost:8000/movie/${this.props.movie.id}/rate_movie/`, {
+        fetch(`${process.env.REACT_APP_API_URL}/movie/${this.props.movie.id}/rate_movie/`, {
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',
@@ -28,7 +28,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
     }
 
     getDetails = () =>{
-        fetch(`http://localhost:8000/movie/${this.props.movie.id}/`, {
+        fetch(`${process.env.REACT_APP_API_URL}/movie/${this.props.movie.id}/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

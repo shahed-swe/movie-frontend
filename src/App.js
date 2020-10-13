@@ -25,8 +25,14 @@ class App extends Component {
     .catch( error => console.log(error) )
   }
 
-  movieClicked = movie => {
+  loadMovies = movie => {
     this.setState({selectedMovie: movie});
+  }
+  
+  movieDeleted = selMovie => {
+    // console.log(selMovie)
+    const movies = this.state.movies.filter(movie => movie.id !== selMovie.id);
+    this.setState({movies: movies, selectedMovie: null});
   }
 
   render(){
@@ -37,11 +43,11 @@ class App extends Component {
             <div className="row">
               <div className="col-12 col-lg-6 col-md-6 col-sm-10">
                 <div className="row">
-                <MovieList movie={this.state.movies} movieClicked={this.movieClicked} />
+                <MovieList movie={this.state.movies} movieClicked={this.loadMovies} movieDeleted={this.movieDeleted}/>
                 </div>
               </div>
               <div className="col-12 col-lg-6 col-md-6 col-sm-10">
-                <MovieDetails movie={this.state.selectedMovie} updateMovie={this.movieClicked}/>
+              <MovieDetails movie={this.state.selectedMovie} updateMovie={this.loadMovies}/>
               </div>
             </div>
           </div>
