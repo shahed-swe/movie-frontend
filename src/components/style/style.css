@@ -3,3 +3,12 @@
     background-color: red;
     margin-top: 20px;
 }
+
+.take {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.take:hover {
+    background-color: aqua;
+}

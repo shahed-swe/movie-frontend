@@ -25,21 +25,30 @@ class App extends Component {
     .catch( error => console.log(error) )
   }
 
+  movieClicked = movie => {
+    this.setState({selectedMovie: movie});
+  }
+
   render(){
     return (
         <React.Fragment>
           <Header/>
           <div className="container">
-            <div className="card">
-              <MovieList movie={this.state.movies} />
-              <MovieDetails movie={this.state.selectedMovie}/>
+            <div className="row">
+              <div className="col-12 col-lg-6 col-md-6 col-sm-10">
+                <div className="row">
+                <MovieList movie={this.state.movies} movieClicked={this.movieClicked} />
+                </div>
+              </div>
+              <div className="col-12 col-lg-6 col-md-6 col-sm-10">
+                <MovieDetails movie={this.state.selectedMovie} updateMovie={this.movieClicked}/>
+              </div>
             </div>
           </div>
           <Footer/>
         </React.Fragment>
     );
   }
-
 }
 
 export default App;

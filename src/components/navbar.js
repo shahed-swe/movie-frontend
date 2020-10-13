@@ -48,9 +48,9 @@ class Header extends Component{
 class Footer extends Component{
     render(){
         return(
-            <footer class="footer">
-                <div class="container">
-                    <span class="text-muted">Designed By Md Shahed Talukder</span>
+            <footer className="footer">
+                <div className="container">
+                    <span className="text-muted">Designed By Md Shahed Talukder</span>
                 </div>
             </footer>
         );

@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-import MovieDetails from './movie-details';
+import './style/style.css';
+
 
 class MovieList extends Component{
+
+
+    movieClicked = movie => evt => {
+        this.props.movieClicked(movie);
+    };
+
     render(){
         return (
             <React.Fragment>
                 {this.props.movie.map(mv => {
                     return (
-                        
-                        <div className="card">
-                            <div className="card-body" key={mv.id}>
+                        <div className="card take col-4" key={mv.id}>
+                            <div className="card-body"  onClick={this.movieClicked(mv)}>
                                 <div className="card-title float-left">
                                     {mv.movie_name}
                                 </div>
-                                {/* <div className="card float-right">
-                                    <MovieDetails all={{description : mv.description,rating : mv.no_of_ratings,avg_rating: mv.avg_rating}} />
-                                </div> */}
-                                
                             </div>
                         </div>
                     )
